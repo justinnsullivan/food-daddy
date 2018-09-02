@@ -50,7 +50,6 @@ export default class BlogPost extends React.Component {
     };
     render() {
         const { markdownRemark: post } = this.props.data;
-        console.log(post)
         return (
             <BlogPostTemplate
                 content={post.html}

@@ -8,9 +8,9 @@ description: >-
 tags:
   - flavor
   - tasting
-thumbnail: /assets/img/clams.jpg
+thumbnail: /img/clams.jpg
 ---
-![](/assets/20160803_baby_feat_c01.jpg)
+![](/img/20160803_baby_feat_c01.jpg)
 
 The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
 
