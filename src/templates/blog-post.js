@@ -1,92 +1,82 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
+import Content, { HTMLContent } from '../components/Content';
 
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
+import './blog-post.scss'
 
-  return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+export class BlogPostTemplate extends React.Component {
+    static propTypes = {
+        content: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+            .isRequired,
+        contentComponent: PropTypes.func,
+        date: PropTypes.string,
+        description: PropTypes.string,
+        title: PropTypes.string
+    };
+    render() {
+        const {
+            content,
+            contentComponent,
+            date,
+            description,
+            tags,
+            title,
+            helmet
+        } = this.props;
+
+        const PostContent = contentComponent || Content;
+        return (
+            <div className="blog-post">
+                {helmet || ''}
+                <h3>{title}</h3>
+                <p className="date">{date}</p>
+                <p>{description}</p>
+                <div className="content">
+                    <PostContent content={content} />
+                </div>
+            </div>
+        );
+    }
 }
 
-BlogPostTemplate.propTypes = {
-  content: PropTypes.string.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
+export default class BlogPost extends React.Component {
+    static propTypes = {
+        data: PropTypes.shape({
+            markdownRemark: PropTypes.object
+        })
+    };
+    render() {
+        const { markdownRemark: post } = this.props.data;
+        console.log(post)
+        return (
+            <BlogPostTemplate
+                content={post.html}
+                contentComponent={HTMLContent}
+                description={post.frontmatter.description}
+                date={post.frontmatter.date}
+                helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
+            />
+        );
+    }
 }
-
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
-
-  return (
-    <BlogPostTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
-    />
-  )
-}
-
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
-
-export default BlogPost
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        description
-        tags
-      }
+    query BlogPostByID($id: String!) {
+        markdownRemark(id: { eq: $id }) {
+            id
+            html
+            frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                title
+                description
+                tags
+                thumbnail
+            }
+        }
     }
-  }
-`
+`;

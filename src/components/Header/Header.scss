@@ -1,0 +1,112 @@
+@import 'config';
+
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+    > h1 {
+        font-size: 100px;
+        line-height: auto;
+        color: $red;
+        margin: 0;
+        word-break: normal;
+        padding-top: 32px;
+        padding-bottom: 16px;
+        padding-left: 5px;
+    }
+    > .links {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        > a {
+            font-size: 28px;
+            font-family: $font-title;
+            margin: 0;
+            padding: 25px 0 20px 0;
+            display: block;
+            width: 50%;
+            color: $red;
+            &:hover {
+                background-color: $red;
+                color: $milk;
+            }
+        }
+    }
+    > .patternline {
+        background: $red;
+        width: 100%;
+        &:nth-of-type(1) {
+            height: 28px;
+            margin-bottom: 3px;
+        }
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+            height: 8px;
+            margin-bottom: 3px;
+        }
+        &:nth-of-type(4) {
+            height: 8px;
+            margin-bottom: 2px;
+        }
+        &:nth-of-type(5),
+        &:nth-of-type(6) {
+            height: 7px;
+            margin-bottom: 2px;
+        }
+        &:nth-of-type(7) {
+            height: 7px;
+            margin-bottom: 3px;
+        }
+        &:nth-of-type(8),
+        &:nth-of-type(9) {
+            height: 6px;
+            margin-bottom: 3px;
+        }
+        &:nth-of-type(10),
+        &:nth-of-type(11) {
+            height: 5px;
+            margin-bottom: 3px;
+        }
+        &:nth-of-type(10),
+        &:nth-of-type(11) {
+            height: 5px;
+            margin-bottom: 4px;
+        }
+        &:nth-of-type(14) {
+            height: 4px;
+            margin-bottom: 4px;
+        }
+        &:nth-of-type(15) {
+            height: 4px;
+            margin-bottom: 5px;
+        }
+        &:nth-of-type(16) {
+            height: 4px;
+            margin-bottom: 6px;
+        }
+        &:nth-of-type(17) {
+            height: 3px;
+            margin-bottom: 6px;
+        }
+        &:nth-of-type(18) {
+            height: 3px;
+            margin-bottom: 7px;
+        }
+        &:nth-of-type(19),
+        &:nth-of-type(20) {
+            height: 2px;
+            margin-bottom: 7px;
+        }
+        &:nth-of-type(21) {
+            height: 1px;
+            margin-bottom: 8px;
+        }
+        &:nth-of-type(22) {
+            height: 0.04em;
+            margin-bottom: 8px;
+        }
+        &:nth-of-type(23) {
+            height: 0.04em;
+        }
+    }
+}

@@ -1,20 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 import Helmet from 'react-helmet'
+import Link from 'gatsby-link';
 
-import Navbar from '../components/Navbar'
-import './all.sass'
+import './index.scss';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet title="Home | Gatsby + Netlify CMS" />
-    <Navbar />
-    <div>{children()}</div>
-  </div>
-)
+class Template extends React.Component {
+    render() {
+        const { location, children } = this.props;
+        let header;
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+        let rootPath = `/`;
+        if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
+            rootPath = __PATH_PREFIX__ + `/`;
+        }
+
+        return (
+            <div className="container">
+                <Header />
+                <Helmet title="🌶 FOOD DADDY 🌶" />
+                {children()}
+                <Footer />
+            </div>
+        );
+    }
 }
 
-export default TemplateWrapper
+export default Template;

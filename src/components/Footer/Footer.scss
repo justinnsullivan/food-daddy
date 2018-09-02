@@ -1,0 +1,16 @@
+@import 'config';
+
+.footer {
+    width: 100%;
+    margin-top: 32px;
+    font-size: 12px;
+    background-color: $red;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    color: $milk;
+    > a {
+        &:hover {
+            color: $grey;
+        }
+    }
+}

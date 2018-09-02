@@ -1,10 +1,9 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
-  "version": "1.1.3",
-  "author": "Austin Green",
+  "name": "food-daddy",
+  "description": "Food Daddy NY Blog built with Gatsby, SASS and Netlify",
+  "version": "1.0.0",
+  "author": "Justin Sullivan",
   "dependencies": {
-    "bulma": "^0.7.0",
     "gatsby": "^1.9.213",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-netlify": "^1.0.19",

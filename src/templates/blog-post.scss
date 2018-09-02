@@ -1,0 +1,36 @@
+@import 'config';
+
+.blog-post {
+    padding: 32px 0px;
+    h3 {
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 15px 20px 10px 20px;
+        border: 0.02em solid $grey-dark;
+        transition: box-shadow 0.1s ease;
+        &:hover {
+            cursor: pointer;
+            background-color: $red;
+        }
+    }
+    > .date {
+        font-size: 13px;
+        margin: 0 0 8px 0;
+    }
+    > .content {
+        font-size: 20px;
+        padding: 24px 0px;
+    }
+    > .line {
+        display: block;
+        margin-bottom: 16px;
+        width: 100%;
+        height: 0.1em;
+        background-color: $grey-dark;
+    }
+}
+
+img {
+    max-width: 50vw;
+}

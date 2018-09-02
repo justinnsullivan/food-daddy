@@ -1,0 +1,94 @@
+// CONFIG
+
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    src: url('/static/assets/fonts/LeagueSpartan.otf')
+            format('otf'),
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,600');
+
+$font-default: 'Roboto', sans-serif;
+$font-title: 'League Spartan', 'helvetica neue', 'helvetica', 'arial';
+
+$font-weight: 400;
+$font-weight-bold: 600;
+
+$font-size-default: 16px;
+$line-height-default: 20px;
+
+$gutters: 25vw;
+
+// Colors
+$milk: #fff7d8;
+$red: #f14f39;
+$grey-dark: #2f2f2f;
+$grey-light: #bdccc9;
+$grey: #333333;
+$white: #ffffff;
+$white-transparent: rgba(255, 255, 255, 0);
+$black: #000000;
+$shadow-black: fade-out($grey-dark, 0.8);
+$shadow-black-faint: fade-out($grey-dark, 0.9);
+$shadow-black-fainter: fade-out($grey-dark, 0.95);
+
+// Brand Colors
+
+$brand-twitter: #1da1f2;
+$brand-facebook: #365899;
+
+// Box Shadow
+$box-shadow-preview: 7px 7px 0px 1px $grey-dark;
+$box-shadow-preview-small: 5px 5px 0px 1px $grey-dark;
+
+// Media
+
+$media-tablet: 'only screen and (max-width : 768px)';
+$media-phone: 'only screen and (max-width : 600px)';
+$media-phone-medium: 'only screen and (max-width : 424px)';
+$media-phone-small: 'only screen and (max-width : 374px)';
+$media-desktop: 'only screen and (min-width : 600px)';
+$media-desktop-big: 'only screen and (min-width : 1700px)';
+
+$radius-smaller: 1px;
+$radius-small: 2px;
+$radius-medium: 4px;
+$radius-default: $radius-medium;
+$radius-large: 8px;
+$radius-larger: 16px;
+
+// Time
+
+$duration-longest: 1.25s;
+$duration-longer: 1s;
+$duration-long: 750ms;
+$duration-default: 500ms;
+$duration-short: 250ms;
+$duration-shorter: 125ms;
+$duration-shortest: 50ms;
+
+// XXX: Move to separate mixins folder
+
+@mixin overflow-elipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin text-small-caps($font-size: 12px) {
+    font-size: $font-size;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-smoothing: grayscale;
+}
+
+@mixin text-default {
+    font-family: $font-default;
+    font-weight: $font-weight;
+    font-size: $font-size-default;
+    color: $grey-dark;
+    line-height: $line-height-default;
+}
